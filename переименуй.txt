@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Год единства народов России 2026</title>
+    <!-- Подключение шрифта Roboto для современного вида -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fef7e8;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        /* Цветовая палитра: патриотичные, тёплые тона */
+        :root {
+            --primary-red: #b22234;
+            --deep-blue: #0033a0;
+            --gold: #d4af37;
+            --light-bg: #fffaf2;
+            --soft-gray: #f4f0e8;
+            --text-dark: #1e2a3e;
+        }
+
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Шапка с флагом */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f0ebe0 100%);
+            padding: 60px 0 40px;
+            border-bottom: 5px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: "🇷🇺";
+            font-size: 280px;
+            opacity: 0.03;
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .year-badge {
+            background: var(--primary-red);
+            color: white;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #b22234, #0033a0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-sub {
+            font-size: 1.3rem;
+            color: #4a4e69;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* секции общие */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 48px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            margin: 16px auto 0;
+            border-radius: 4px;
+        }
+
+        /* карточки принципов */
+        .principles-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .principle-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 24px;
+            flex: 1;
+            min-width: 240px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .principle-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+
+        .principle-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-red);
+        }
+
+        .principle-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .principle-card p {
+            color: #3a4a5f;
+            font-size: 1rem;
+        }
+
+        /* события и списки */
+        .events-list, .dates-list {
+            background: var(--soft-gray);
+            border-radius: 32px;
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        .events-list ul, .dates-list ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            list-style: none;
+        }
+
+        .events-list li, .dates-list li {
+            background: white;
+            padding: 18px 24px;
+            border-radius: 60px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: all 0.2s;
+        }
+
+        .events-list li i, .dates-list li i {
+            color: var(--gold);
+            font-size: 1.5rem;
+            width: 32px;
+        }
+
+        .dates-list li {
+            background: #fff6e5;
+            border-left: 6px solid var(--primary-red);
+            border-radius: 20px;
+        }
+
+        .quote-block {
+            background: linear-gradient(120deg, #0033a0, #1e4b9e);
+            color: white;
+            border-radius: 48px;
+            padding: 48px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .quote-block p {
+            font-size: 1.4rem;
+            font-style: italic;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-author {
+            margin-top: 24px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .footer {
+            background: #1e2a3e;
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding: 40px 0 30px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .events-list ul, .dates-list ul {
+                grid-template-columns: 1fr;
+            }
+            .events-list, .dates-list {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="container hero-content">
+        <div class="year-badge">Официальный Год России 2026</div>
+        <h1>Единство народов России</h1>
+        <p class="hero-sub">Сохранение самобытности. Общая история. Общее будущее.</p>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- С чего всё началось -->
+        <section>
+            <h2 class="section-title">С чего всё началось?</h2>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center; font-size: 1.2rem;">
+                <p><strong>Инициатива</strong> объявить 2026 год Годом единства народов России была выдвинута атаманом Всероссийского казачьего общества <strong>Виталием Кузнецовым</strong> и получила поддержку Президента <strong>Владимира Путина</strong>. Соответствующий Указ подписан 25 декабря 2025 года.</p>
+            </div>
+        </section>
+
+        <!-- Принципы единства -->
+        <section>
+            <h2 class="section-title">Основные принципы</h2>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Сохранение самобытности</h3>
+                    <p>Каждый народ России сохраняет свой язык, культуру и традиции.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon"><i class="fas fa-language"></i></div>
+                    <h3>Русский язык и культура</h3>
+                    <p>Как объединяющий фактор многонациональной страны.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon"><i class="fas fa-flag-checkered"></i></div>
+                    <h3>Общероссийская идентичность</h3>
+                    <p>Единые традиционные ценности и историческая память.</p>
+                </div>
+            </div>
+            <div class="quote-block">
+                <p>«Конституция России закрепляет защиту культурной самобытности всех народов страны, сохранение языкового и этнокультурного многообразия с опорой на единые для всех традиционные ценности»</p>
+                <div class="quote-author">— Из Послания о Годе единства</div>
+            </div>
+        </section>
+
+        <!-- Мероприятия Года -->
+        <section>
+            <h2 class="section-title">Масштабные события 2026 года</h2>
+            <div class="events-list">
+                <ul>
+                    <li><i class="fas fa-music"></i> Фестивали народных культур, концерты, театральные проекты</li>
+                    <li><i class="fas fa-palette"></i> Выставки, посвящённые традициям и промыслам народов России</li>
+                    <li><i class="fas fa-film"></i> Медийные проекты: документальные фильмы, спецкурсы для школ и вузов</li>
+                    <li><i class="fas fa-utensils"></i> Кулинарные мастер-классы, дни национальных игр и этничности</li>
+                    <li><i class="fas fa-tree"></i> Составление генеалогических древ в семьях</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Новые официальные даты -->
+        <section>
+            <h2 class="section-title">Новые памятные даты</h2>
+            <div class="dates-list">
+                <ul>
+                    <li><i class="far fa-calendar-alt"></i> <strong>30 апреля</strong> — День коренных малочисленных народов России</li>
+                    <li><i class="far fa-calendar-alt"></i> <strong>8 сентября</strong> — День языков народов России</li>
+                </ul>
+                <p style="margin-top: 32px; text-align: center; font-weight: 500;">Эти праздники призваны подчеркнуть ценность культурного и языкового разнообразия страны.</p>
+            </div>
+        </section>
+
+        <!-- Работа с молодёжью -->
+        <section>
+            <h2 class="section-title">Особый фокус — молодёжь</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: center;">
+                <div style="flex: 1; min-width: 240px; background: white; border-radius: 32px; padding: 32px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+                    <i class="fas fa-users" style="font-size: 3rem; color: var(--primary-red); margin-bottom: 16px; display: inline-block;"></i>
+                    <h3>Образовательные проекты</h3>
+                    <p>Спецкурсы для школ и вузов, лекции о культурах народов России, конкурсы сочинений и проектов.</p>
+                </div>
+                <div style="flex: 1; min-width: 240px; background: white; border-radius: 32px; padding: 32px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+                    <i class="fas fa-volleyball-ball" style="font-size: 3rem; color: var(--primary-red); margin-bottom: 16px; display: inline-block;"></i>
+                    <h3>Национальные игры</h3>
+                    <p>Спортивные фестивали, где молодёжь знакомится с традиционными играми разных народов.</p>
+                </div>
+                <div style="flex: 1; min-width: 240px; background: white; border-radius: 32px; padding: 32px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+                    <i class="fas fa-heart" style="font-size: 3rem; color: var(--primary-red); margin-bottom: 16px; display: inline-block;"></i>
+                    <h3>Волонтёрство единства</h3>
+                    <p>Молодёжные форумы и добровольческие миссии по сохранению культурного наследия.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>🇷🇺 2026 — Год единства народов России 🇷🇺</p>
+        <p style="margin-top: 16px; font-size: 0.9rem;">«В единстве наша сила» — официальный слоган года.</p>
+        <p style="margin-top: 20px;"><i class="fas fa-calendar-check"></i> Указ Президента РФ от 25 декабря 2025 года</p>
+        <p style="margin-top: 28px;"><a href="#">Официальные мероприятия</a> | <a href="#">Карта фестивалей</a> | <a href="#">История единства</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
